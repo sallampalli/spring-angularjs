@@ -1,0 +1,61 @@
+<!doctype html>
+<html ng-app="clinicalApp">
+<head>
+<title>Doctor's Aid</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.js"></script>
+
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.8/angular-route.js"></script>
+
+<script src="app.js"></script>
+<script
+	src="components/angular-bootstrap/ui-bootstrap-tpls-0.12.0.min.js"></script>
+</head>
+
+<body>
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"> <img
+					src="http://www.harrisburgmc.com/m/Harrisburg_medical_center_1.gif"
+					height="35" width="230" />
+				</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="#/appointments">View Appointments</a></li>
+					<li><a href="#/addappointment">Create Appointment</a></li>
+					<li><a href="#/adddoctor">Add Doctor</a></li>
+
+					<li><button class="btn btn-danger" ng-click="logout()"
+							ng-controller="Hello">Logout</button></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+	<div ng-controller="Hello">
+		<div class="container-fluid">
+
+			<div ng-view></div>
+
+
+		</div>
+	</div>
+</body>
+</html>

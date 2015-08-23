@@ -1,0 +1,74 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">Filters</div>
+	<div class="panel-body">
+		<div class="row">
+				<input type="text" ng-model="search.$" class="form-control"
+					placeholder="Search Anything...">
+			<div class="col-sm-4">
+				<input type="text" ng-model="search.patient.patient_first_name"
+					class="form-control" placeholder="First Name"> <input
+					type="text" ng-model="search.patient.patient_last_name"
+					class="form-control" placeholder="Last Name">
+
+			</div>
+			<div class="col-sm-4">
+				<input type="text" ng-model="search.patient.age"
+					class="form-control" placeholder="Age"> <input type="text"
+					ng-model="search.patient.gender" class="form-control"
+					placeholder="Gender">
+
+			</div>
+			<div class="col-sm-4">
+				<select class="form-control"
+					ng-model="search.doctor.doctor_first_name"
+					ng-options="doctor.doctor_first_name as doctor.doctor_first_name for doctor in doctors | orderBy:'doctor_first_name'">
+					<option value="">-- Choose Doctor --</option>
+				</select> <input type="date" ng-model="search.appointmentDate" pattern="MM/dd/yyyy"
+					class="form-control" placeholder="Appointment Date">
+
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+<div class="panel panel-primary">
+	<div class="panel-heading">Appointments</div>
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-md-8">
+				<table class="table table-striped">
+					<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Age</th>
+						<th>Gender</th>
+						<th>Problem</th>
+						<th>Appointment DateTime</th>
+						<th>Assigned Doctor</th>
+					<tr>
+					<tr ng-repeat="row in greeting|filter:search">
+						<td>
+							<button popover="{{row}}" popover-title="More Info.." popover-placement="right"
+								class="btn btn-default">{{row.patient.patient_first_name}}</button>
+						</td>
+						<td>{{row.patient.patient_last_name}}</td>
+						<td>{{row.patient.age}}</td>
+						<td>{{row.patient.gender}}</td>
+						<td>{{row.patient.problem}}</td>
+						<td>{{row.appointmentDate | date:'MM/dd/yyyy @ h:mma'}}</td>
+						<td>{{row.doctor.doctor_first_name}},
+							{{row.doctor.doctor_last_name}}</td>
+						<td><button type="button" class="btn btn-primary"
+								ng-click="updateappointmentWith(row.appointmentId)">Edit</button></td>
+						<td><button type="button" class="btn btn-danger"
+								ng-click="deleteappointment(row.appointmentId)">Delete</button></td>
+					</tr>
+				</table>
+				<button type="button" class="btn btn-success"
+					ng-click="goTo('/addappointment')">Add New Appointment</button>
+			</div>
+		</div>
+	</div>
+</div>

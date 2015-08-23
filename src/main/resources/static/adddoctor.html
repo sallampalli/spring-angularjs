@@ -1,0 +1,49 @@
+<div class="row">
+	<div class="col-md-8">
+
+		<form class="form" role="form" name="doctorForm">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="fname">ID</label> <input type="text"
+							class="form-control"
+							ng-model="doctor.doctor_id" id="fname"
+							placeholder="Enter First Name">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="fname">First Name</label> <input type="text"
+							class="form-control"
+							ng-model="doctor.doctor_first_name" id="fname"
+							placeholder="Enter First Name">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="lname">Last Name</label> <input type="text"
+							class="form-control"
+							ng-model="doctor.doctor_last_name" id="lname"
+							placeholder="Enter Last Name">
+					</div>
+				</div>
+			</div>
+			
+			<div class="danger" ng-show="sampleError" >
+			{{sampleError.message}}
+			</div>
+			
+
+
+			<button type="submit" class="btn btn-primary"
+				ng-click="addNewDoctor(doctor)">Add Doctor to clinic</button>
+			<button type="button" class="btn btn-danger"
+				ng-click="goTo('/appointments')">Cancel</button>
+
+
+		</form>
+
+
+	</div>
+
+</div>

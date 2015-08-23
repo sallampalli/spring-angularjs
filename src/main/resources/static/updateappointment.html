@@ -1,0 +1,80 @@
+<div class="row">
+	<div class="col-md-8">
+
+		<form class="form" role="form" name="editappointmentForm">
+<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="fname">First Name</label> <input type="text"
+							class="form-control"
+							ng-model="editappointmentTemp.patient.patient_first_name" id="fname"
+							placeholder="Enter First Name">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="lname">Last Name</label> <input type="text"
+							class="form-control"
+							ng-model="editappointmentTemp.patient.patient_last_name" id="lname"
+							placeholder="Enter Last Name">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="age">Age</label> <input type="number"
+							class="form-control" ng-model="editappointmentTemp.patient.age" id="age"
+							placeholder="Enter Age">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="gender">Gender</label> <input type="text"
+							class="form-control" ng-model="editappointmentTemp.patient.gender"
+							id="gender" placeholder="Gender">
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="problem">Reason for visit :</label>
+				<textarea class="form-control"
+					ng-model="editappointmentTemp.patient.problem" id="problem"
+					placeholder="Enter Problem">
+					</textarea>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="date">Date:</label> <input type="date"
+							class="form-control" ng-model="editappointmentTemp.appointmentDate"
+							id="date" placeholder="Choose Date">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<div class="form-group">
+							<label for="doctor">Doctor</label> <span class="nullable">
+								<select class="form-control"
+								ng-model="editappointmentTemp.doctor.doctor_id"
+								ng-options="doctor.doctor_id as doctor.doctor_first_name for doctor in doctors | orderBy:'doctor_first_name'">
+									<option value="">-- Choose Doctor --</option>
+							</select>
+							</span>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			
+			<button type="button" class="btn btn-primary" ng-click="updateappointment(editappointmentTemp)">Update</button>
+			<button type="button" class="btn btn-danger" ng-click="goTo('/appointments')">Cancel</button>
+
+
+		</form>
+
+
+	</div>
+
+</div>
